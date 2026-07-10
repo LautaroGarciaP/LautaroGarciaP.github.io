@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: 'es' }}">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
   <meta property="og:description" content="{{ site.description }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}{{ page.url | relative_url }}">
-  <meta property="og:locale" content="{{ site.lang | default: 'es_ES' }}">
+  <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/104364638?v=4">
 
   <!-- Twitter Card -->
@@ -27,44 +27,88 @@
 
   <script>
     (function() {
+      // Theme
       var t = localStorage.getItem('theme');
-      if (t) {
-        document.documentElement.setAttribute('data-theme', t);
-      }
+      if (t) document.documentElement.setAttribute('data-theme', t);
+
+      // Language — default English
+      var lang = localStorage.getItem('lang') || 'en';
+      document.documentElement.setAttribute('data-lang', lang);
     })();
   </script>
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
-  <button
-    class="theme-toggle"
-    aria-label="Activar modo oscuro"
-    aria-pressed="false"
-    data-theme-toggle
-  >◐</button>
+  <nav class="controls" aria-label="Site controls">
+    <button
+      class="lang-toggle"
+      aria-label="Switch to Spanish"
+      data-lang-toggle
+    >ES</button>
+    <button
+      class="theme-toggle"
+      aria-label="Toggle dark mode"
+      aria-pressed="false"
+      data-theme-toggle
+    >◐</button>
+  </nav>
 
   {{ content }}
 
   <script>
     (function() {
-      var btn = document.querySelector('[data-theme-toggle]');
+      var langBtn = document.querySelector('[data-lang-toggle]');
+      var themeBtn = document.querySelector('[data-theme-toggle]');
       var root = document.documentElement;
 
-      function updateLabel() {
-        var isDark = root.getAttribute('data-theme') === 'dark';
-        btn.setAttribute('aria-pressed', isDark);
-        btn.setAttribute('aria-label', isDark ? 'Activar modo claro' : 'Activar modo oscuro');
+      // --- Language ---
+      function applyLang(lang) {
+        root.setAttribute('data-lang', lang);
+        localStorage.setItem('lang', lang);
+
+        // Show/hide elements
+        document.querySelectorAll('[data-lang]').forEach(function(el) {
+          el.hidden = el.getAttribute('data-lang') !== lang;
+        });
+
+        // Update toggle label
+        langBtn.textContent = lang === 'en' ? 'ES' : 'EN';
+        langBtn.setAttribute('aria-label',
+          lang === 'en' ? 'Cambiar a español' : 'Switch to English'
+        );
+
+        // Update html lang
+        document.documentElement.lang = lang;
       }
 
-      updateLabel();
+      // Init language
+      var currentLang = localStorage.getItem('lang') || 'en';
+      applyLang(currentLang);
 
-      btn.addEventListener('click', function() {
+      langBtn.addEventListener('click', function() {
+        var current = root.getAttribute('data-lang');
+        var next = current === 'en' ? 'es' : 'en';
+        applyLang(next);
+      });
+
+      // --- Theme ---
+      function updateThemeLabel() {
+        var isDark = root.getAttribute('data-theme') === 'dark';
+        themeBtn.setAttribute('aria-pressed', isDark);
+        themeBtn.setAttribute('aria-label',
+          isDark ? 'Activate light mode' : 'Activate dark mode'
+        );
+      }
+
+      updateThemeLabel();
+
+      themeBtn.addEventListener('click', function() {
         var current = root.getAttribute('data-theme');
         var next = current === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
-        updateLabel();
+        updateThemeLabel();
       });
     })();
   </script>

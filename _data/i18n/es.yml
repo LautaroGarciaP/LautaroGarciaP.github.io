@@ -1,0 +1,23 @@
+lang_code: es
+lang_label: ES
+
+# Hero
+tagline: Ingeniería de Sistemas — UNICEN
+
+# Sections
+projects_heading: Proyectos
+about_heading: Sobre mí
+stack_heading: Stack
+contact_heading: Contacto
+
+# About
+about_p1: "Estoy por recibirme de Ingeniero en Sistemas en UNICEN. Hago cosas en Java, Python y C++ — hecho es mejor que perfecto"
+about_p2: "Fuera de la compu, jugué al handball durante más de una década y algo de beach handball también. Me gusta generar soluciones que funcionen y resolver problemas."
+
+# Stack categories
+cat_languages: Lenguajes
+cat_tech: Tecnologías
+cat_interests: Interests
+
+# Footer
+copyright: "&copy;"

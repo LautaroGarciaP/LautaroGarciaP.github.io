@@ -1,0 +1,23 @@
+lang_code: en
+lang_label: EN
+
+# Hero
+tagline: Systems Engineering — UNICEN
+
+# Sections
+projects_heading: Projects
+about_heading: About
+stack_heading: Stack
+contact_heading: Contact
+
+# About
+about_p1: "About to graduate in Systems Engineering at UNICEN. I build things in Java, Python and C++ — give up on perfection, embrace good enough."
+about_p2: "IRL, I played handball for over a decade and some beach handball too. I enjoy building solutions that work and solving problems."
+
+# Stack categories
+cat_languages: Languages
+cat_tech: Technologies
+cat_interests: Interests
+
+# Footer
+copyright: "&copy;"

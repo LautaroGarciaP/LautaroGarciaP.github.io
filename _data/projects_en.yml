@@ -1,0 +1,11 @@
+- name: Compilador
+  description: "Full compiler for a custom programming language: from lexical analysis to executable x86 assembly code. Handles lambda functions, multiple return values, copy-by-value/result, and runtime overflow and division-by-zero checks."
+  stack: [Java, Yacc/Bison, x86 Assembly]
+  url: https://github.com/JuanX-M/Compilador
+  role: Co-author
+
+- name: Neuradocs
+  description: "WhatsApp bot with RAG that answers queries from PDFs and CSV product catalogs. Processes audio transcription, uses fuzzy matching for FAQ, and generates contextual responses with Gemini. Docker containerized, admin panel included."
+  stack: [Python, FastAPI, Docker, Gemini, FAISS, PostgreSQL]
+  url: https://github.com/Franco-ces/Chatbot-Whatsapp
+  role: Co-author

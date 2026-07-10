@@ -26,34 +26,34 @@
 }
 
 [data-theme="dark"] {
-  --bg: #0f0f0d;
+  --bg: #000000;
   --bg-subtle: #1a1a17;
-  --text: #e8e6e1;
-  --text-secondary: #a8a8a0;
-  --muted: #6e6e66;
-  --border: #2a2a25;
-  --border-strong: #3a3a35;
+  --text: #ededea;
+  --text-secondary: #b0b0a8;
+  --muted: #8a8a82;
+  --border: #333330;
+  --border-strong: #444440;
   --accent: #60a5fa;
   --accent-hover: #93c5fd;
   --card-bg: #1a1a17;
-  --card-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.3);
-  --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2);
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.35);
+  --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.35), 0 2px 4px rgba(0,0,0,0.25);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0f0f0d;
+    --bg: #000000;
     --bg-subtle: #1a1a17;
-    --text: #e8e6e1;
-    --text-secondary: #a8a8a0;
-    --muted: #6e6e66;
-    --border: #2a2a25;
-    --border-strong: #3a3a35;
+    --text: #ededea;
+    --text-secondary: #b0b0a8;
+    --muted: #8a8a82;
+    --border: #333330;
+    --border-strong: #444440;
     --accent: #60a5fa;
     --accent-hover: #93c5fd;
     --card-bg: #1a1a17;
-    --card-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.3);
-    --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2);
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.35);
+    --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.35), 0 2px 4px rgba(0,0,0,0.25);
   }
 }
 
@@ -109,23 +109,38 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ---------- Theme toggle ---------- */
+/* ---------- Controls (lang + theme) ---------- */
 
-.theme-toggle {
+.controls {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lang-toggle,
+.theme-toggle {
   background: none;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   color: var(--muted);
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: "SF Mono", "Fira Code", monospace;
   line-height: 1;
   padding: 0.45rem 0.65rem;
   transition: all 0.2s ease;
 }
 
+.theme-toggle {
+  font-size: 1.1rem;
+  font-family: inherit;
+  font-weight: 400;
+}
+
+.lang-toggle:hover,
 .theme-toggle:hover {
   color: var(--text);
   border-color: var(--border-strong);
