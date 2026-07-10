@@ -1,0 +1,21 @@
+title: Lautaro Garcia
+description: Ingeniería de Sistemas — UNICEN
+baseurl: ""
+url: "https://lautapiola.github.io"
+author: Lautaro Garcia
+lang: es
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - AGENTS.md
+  - .atl
+  - node_modules
+  - package.json
+  - vendor
