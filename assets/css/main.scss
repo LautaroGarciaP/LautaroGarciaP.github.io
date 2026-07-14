@@ -266,14 +266,28 @@ h2 {
   font-weight: 600;
 }
 
-.project-header h3 a {
-  color: var(--text);
+.project-github {
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  transition: color 0.2s ease;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
 }
 
-.project-header h3 a:hover {
+.project-github:hover {
   color: var(--accent);
+  background: var(--bg-subtle);
+  transform: scale(1.15);
+}
+
+.project-github svg {
+  display: block;
 }
 
 .project-role {
